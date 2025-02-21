@@ -29,5 +29,18 @@
     --light-color: #E0E0E0;
     --background-color: #EFEFEF;
     --white-color: #FFFFFF;
+}
 
+
+
+main {
+    background-color: var(--white-color);
+}
+
+.pokemon {
+    background: var(--Grayscale-White, #FFF);
+}
+
+h1 {
+    
 }

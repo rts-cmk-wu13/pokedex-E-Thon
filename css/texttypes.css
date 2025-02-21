@@ -6,7 +6,7 @@ font-weight: 100;
 font-style: normal;
 */
 
-body, h1, h2, h3, h4, caption {
+body, h1, h2, h3, h4, .caption {
     font-family: "Poppins", serif;
     font-style: normal;
 }
@@ -15,7 +15,7 @@ body, h1, h2, h3, h4, caption {
 h1, h2, h3, h4 {
     font-weight: 700;
 }
-.body1, .body2, .body3, caption {
+.body1, .body2, .body3, .caption {
     font-weight: 400;
 }
 
@@ -32,7 +32,7 @@ h3, .body2 {
 h4, .body3 {
     font-size: .625rem;
 }
-caption {
+.caption {
     font-size: .667rem;
 }
 
@@ -44,7 +44,7 @@ h1 {
 h2, h3, h4, .body1, .body2, .body3 {
     line-height: 1rem;
 } 
-caption {
+.caption {
     line-height: .75rem;
 } 
 

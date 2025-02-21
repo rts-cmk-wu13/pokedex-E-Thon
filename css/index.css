@@ -1,0 +1,42 @@
+@import url(colors.css);
+
+#root {
+    background-color: var(--primary-color);
+}
+
+
+.pokelist__div {
+    width: 93.18%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31.71%, 1fr));
+    grid-template-rows: auto;
+    margin: 0 auto 0;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 10rem;
+}
+
+.pokemon{
+    border-radius: 10px;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.20);
+    height: 6.75rem;
+    width: 6.75rem;
+}
+.pokemon a {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+.pokemon a .caption {
+    color: var(--medium-color);
+    justify-self: end;
+    padding: .25rem .5rem 0 0;
+}
+.pokemon a img {
+    width: 69.23%;
+    justify-self: center;
+}
+.pokemon a p {
+    color: var(--dark-color);
+    justify-self: center;
+}

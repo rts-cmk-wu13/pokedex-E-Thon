@@ -1,6 +1,11 @@
 let divElmInner = document.createElement("div");
 divElmInner.className = "pokelist";
 
+let header = document.querySelector("header")
+header.innerHTML = `
+<h1>Pokédex</h1>
+`
+
 fetch("https://pokeapi.co/api/v2/pokemon", {
   headers: {
     Accept: "application/json",
@@ -11,17 +16,18 @@ fetch("https://pokeapi.co/api/v2/pokemon", {
   })
   .then(function (data) {
     let divElms = document.createElement("div");
+    divElms.className = "pokelist__div"
 
     divElms.innerHTML = data.results
       .map(function (pokemon) {
         let id = pokemon.url.slice(0, -1).split("/").pop();
 
         return `
-        <article class="single_pokemon">
+        <article class="pokemon">
             <a href="detail.html">
-                <p>#${id}</p>
+                <p class="caption">#${id}</p>
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${pokemon.name}">
-                <h2>${pokemon.name}</h2>
+                <p class="body3">${pokemon.name}</p>
             </a>
         </article>
         `;
@@ -29,4 +35,5 @@ fetch("https://pokeapi.co/api/v2/pokemon", {
       .join("");
     divElmInner.appendChild(divElms);
   });
+
 document.querySelector("main").append(divElmInner);
