@@ -9,9 +9,13 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     let detailHeader = document.createElement("section");
     detailHeader.className = "detailheader";
     let mainElm = document.querySelector("main");
-    let pokemonDetail = document.createElement("div");
+    let pokemonDetail = document.createElement("section");
+    let pokemonDescription = document.createElement("div");
+    let pokemonStats = document.createElement("section");
 
     pokemonDetail.classList.add("pokemondetail");
+    pokemonDescription.classList.add("pokemondescription");
+    pokemonStats.classList.add("pokemonstats");
 
     detailHeader.innerHTML = `
     <i class="fa-solid fa-arrow-left"></i>
@@ -20,19 +24,88 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     `;
 
     pokemonDetail.innerHTML = `
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${data.name}">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${
+      data.name
+    }">
     <ul class="pokemondetail__types">
-        <li class="pokemondetail__type">${data.types[0]?.type.name || ''}</li>
-        <li class="pokemondetail__type">${data.types[1]?.type.name || ''}</li>
+        <li class="pokemondetail__type">${data.types[0]?.type.name || ""}</li>
+        <li class="pokemondetail__type">${data.types[1]?.type.name || ""}</li>
         <!-- ? tjekker om dataen eksisterer, hvis ikke, så returneres en tom streng -->
-        <li class="pokemondetail__type">${data.types[2]?.type.name || ''}</li>
+        <li class="pokemondetail__type">${data.types[2]?.type.name || ""}</li>
     </ul>
     <h2 class="pokemondetail__about">About</h2>
+    <table class="pokemondetail__table">
+        <tr class="pokemondetail__tr">
+            <td class="pokemondetail__td body3">
+                <img src="../img/weight.png" alt="Pokemon weight"> ${data.weight/10} kg
+            </td>
+            <td class="pokemondetail__td body3">
+                <img src="../img/ruler.png" alt="Pokemon height"> ${data.height/10} m
+            </td>
+            <td class="pokemondetail__td body3">
+            ${data.abilities[0].ability.name}<br>
+            ${data.abilities[1]?.ability.name || ''}     
+            </td>
+        </tr>
+        <tr class="pokemondetail__tr">
+            <td class="pokemondetail__td caption">
+                Weight               
+            </td>
+            <td class="pokemondetail__td caption">
+                Height
+            </td>
+            <td class="pokemondetail__td caption">
+                Moves
+            </td>
+        </tr>
+    </table>
     `;
+
+    pokemonDescription.innerHTML = `
+    <div>her skal jeg hente et fetch herfra: "https://pokeapi.co/api/v2/pokemon-species/${id}/".flavor_text_entries[9].flavor_text</div>
+    `;
+
+    pokemonStats.innerHTML = `
+    <h2>Base Stats</h2>
+    <table class="pokemonstats__table">
+        <tr class="pokemonstats__tr">
+            <td class="pokemonstats__td">hp</td>
+            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td"></td>
+        </tr>
+        <tr class="pokemonstats__tr">
+            <td class="pokemonstats__td">atk</td>
+            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td"></td>
+        </tr>
+        <tr class="pokemonstats__tr">
+            <td class="pokemonstats__td">def</td>
+            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td"></td>
+        </tr>
+        <tr class="pokemonstats__tr">
+            <td class="pokemonstats__td">satk</td>
+            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td"></td>
+        </tr>
+        <tr class="pokemonstats__tr">
+            <td class="pokemonstats__td">sdef</td>
+            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td"></td>
+        </tr>
+        <tr class="pokemonstats__tr">
+            <td class="pokemonstats__td">spd</td>
+            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td"></td>
+        </tr>
+        
+    </table>
+    `;
+
     let rootElm = document.querySelector("#root");
 
     headerElm.appendChild(detailHeader);
-    mainElm.appendChild(pokemonDetail);
+    mainElm.append(pokemonDetail, pokemonDescription, pokemonStats);
 
     // TYPE COLORS:
     if (data.types[0].type.name == "normal") {
