@@ -14,12 +14,12 @@ header.innerHTML = `
     <div class="header__burger">
         <h4>Sort by:</h4>
         <form class="header__form" action="#">
-            <label class="header__container body3" for="number">Number
-                <input type="checkbox" name="check" id="number" value="false">
+            <label class="header__container body3" for="number1">Number
+                <input type="checkbox" name="check" id="number1" value="false">
                 <span class="checkmark"></span>
             </label>
-            <label class="header__container body3" for="number">Name
-                <input type="checkbox" name="check" id="number" value="false">
+            <label class="header__container body3" for="number2">Name
+                <input type="checkbox" name="check" id="number2" value="false">
                 <span class="checkmark"></span>
             </label>
         </form>

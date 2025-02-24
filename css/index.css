@@ -54,15 +54,16 @@ header {
     padding-left: 2.25rem;
 }
 
+
+/* HEADER -- BURGER */
 .header__bottom button {
     justify-self: end;
     background-color: var(--white-color);
     color: var(--primary-color);
+    cursor: pointer;
 }
-
-/* HEADER -- BURGER */
 .header__burger {
-    display: block;
+    display: none;
     width: fit-content;
     position: absolute;
     background-color: var(--primary-color);
@@ -81,11 +82,14 @@ header {
 .header__burger h4 {
     color: var(--white-color);
     padding: .5rem;
+    padding-bottom: 1rem;
 }
 .header__burger form {
     background-color: var(--white-color);
     border-radius: 8px;
     padding: 1rem 1.2rem 0;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.25) inset;
+
 }
 .header__container {
     color: var(--dark-color);
@@ -111,7 +115,7 @@ header {
     border: 1px solid var(--primary-color);
 }
 .header__container input:checked~.checkmark {
-    background-color: var(--primary-color);
+    background-color: var(--white-color);
 }
 .header__container:after {
     content: "";
@@ -122,10 +126,13 @@ header {
     display: block;
 }
 .header__container .checkmark:after {
-    left: .2rem;
-    top: .2rem;
-    width: .2rem;
-    height: .2rem;
+    content: "";
+    position: absolute;
+    display: none;
+    left: 22%;
+    top: 22%;
+    width: .44rem;
+    height: .44rem;
     border-radius: 50%;
 	background: var(--primary-color);
 }
@@ -134,7 +141,6 @@ header {
 .pokelist {
     position: relative;
 }
-
 .pokelist__div {
     width: 93.18%;
     display: grid;
@@ -145,38 +151,34 @@ header {
     padding-top: 1.5rem;
     padding-bottom: 10rem;
 }
-
 .pokemon {
     border-radius: 10px;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.20);
     height: 6.75rem;
     width: 6.75rem;
     background: linear-gradient(to top, var(--background-color) 40.74%, #FFFFFF 30%);
-
 }
-
 .pokemon a {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
 }
-
 .pokemon a .caption {
     color: var(--medium-color);
     justify-self: end;
     padding: .25rem .5rem 0 0;
     grid-row: 1 / 2;
 }
-
 .pokemon a img {
     width: 69.23%;
     justify-self: center;
     grid-row: 2 / 3;
 }
-
 .pokemon a p:last-of-type {
     color: var(--dark-color);
     justify-self: center;
     grid-row: 3 / 4;
     background-color: var(--background-color);
+    
 }
+
