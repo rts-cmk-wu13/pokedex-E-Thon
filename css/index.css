@@ -2,7 +2,6 @@
 
 #root {
     background-color: var(--primary-color);
-    padding-bottom: .2rem;
 }
 
 
@@ -55,14 +54,14 @@ header {
 }
 
 
-/* HEADER -- BURGER */
+/* HEADER -- POPUP */
 .header__bottom button {
     justify-self: end;
     background-color: var(--white-color);
     color: var(--primary-color);
     cursor: pointer;
 }
-.header__burger {
+.header__popup {
     display: none;
     width: fit-content;
     position: absolute;
@@ -79,12 +78,12 @@ header {
     z-index: 10;
 }
 
-.header__burger h4 {
+.header__popup h4 {
     color: var(--white-color);
     padding: .5rem;
     padding-bottom: 1rem;
 }
-.header__burger form {
+.header__popup form {
     background-color: var(--white-color);
     border-radius: 8px;
     padding: 1rem 1.2rem 0;

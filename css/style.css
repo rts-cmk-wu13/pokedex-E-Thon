@@ -21,6 +21,7 @@ body {
 #root {
     margin: 0 auto;
     max-width: 22.5rem;
+    padding-bottom: .2rem;
 }
 main {
     max-width: 97.77%;

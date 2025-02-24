@@ -1,0 +1,7 @@
+@import url(colors.css);
+
+.detailheader {
+    background-image: url(../img/pokeball_big.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
