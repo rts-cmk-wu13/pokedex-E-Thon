@@ -11,7 +11,7 @@ header.innerHTML = `
     <input type="search" id="search" name="search" placeholder="Search"  aria-label="Search through pokémons">
     <span><i class="fa-solid fa-magnifying-glass"></i></span>
     <button class="header__btn"><i class="fa-solid fa-hashtag"></i></button>
-    <div class="header__burger">
+    <div class="header__popup">
         <h4>Sort by:</h4>
         <form class="header__form" action="#">
             <label class="header__container body3" for="number1">Number
