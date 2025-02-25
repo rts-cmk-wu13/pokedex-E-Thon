@@ -70,32 +70,32 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     <table class="pokemonstats__table">
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">hp</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${data.stats[0].base_stat}</td>
             <td class="pokemonstats__td"></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">atk</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${data.stats[1].base_stat}</td>
             <td class="pokemonstats__td"></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">def</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${data.stats[2].base_stat}</td>
             <td class="pokemonstats__td"></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">satk</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${data.stats[3].base_stat}</td>
             <td class="pokemonstats__td"></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">sdef</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${data.stats[4].base_stat}</td>
             <td class="pokemonstats__td"></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">spd</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${data.stats[5].base_stat}</td>
             <td class="pokemonstats__td"></td>
         </tr>
         
@@ -249,3 +249,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#68A090";
     }
   });
+
+ 
+  
