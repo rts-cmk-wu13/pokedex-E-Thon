@@ -1,6 +1,7 @@
 let search = window.location.search;
 let params = new URLSearchParams(search);
 let id = params.get("id");
+console.log("Pokemon ID:", id);
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   .then((response) => response.json())
@@ -37,14 +38,18 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     <table class="pokemondetail__table">
         <tr class="pokemondetail__tr">
             <td class="pokemondetail__td body3">
-                <img src="../img/weight.png" alt="Pokemon weight"> ${data.weight/10} kg
+                <img src="../img/weight.png" alt="Pokemon weight"> ${
+                  data.weight / 10
+                } kg
             </td>
             <td class="pokemondetail__td body3">
-                <img src="../img/ruler.png" alt="Pokemon height"> ${data.height/10} m
+                <img src="../img/ruler.png" alt="Pokemon height"> ${
+                  data.height / 10
+                } m
             </td>
             <td class="pokemondetail__td body3">
             ${data.abilities[0].ability.name}<br>
-            ${data.abilities[1]?.ability.name || ''}     
+            ${data.abilities[1]?.ability.name || ""}     
             </td>
         </tr>
         <tr class="pokemondetail__tr">
@@ -61,42 +66,70 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     </table>
     `;
 
-    pokemonDescription.innerHTML = `
-    <div>her skal jeg hente et fetch herfra: "https://pokeapi.co/api/v2/pokemon-species/${id}/".flavor_text_entries[9].flavor_text</div>
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}/`)
+      .then((response) => response.json())
+      .then((text) => {
+        pokemonDescription.innerHTML = `
+    <p class="pokemondescription__text body3">${text.flavor_text_entries[9].flavor_text}</p>
     `;
+      });
 
     pokemonStats.innerHTML = `
     <h2>Base Stats</h2>
     <table class="pokemonstats__table">
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">hp</td>
-            <td class="pokemonstats__td">${data.stats[0].base_stat}</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${String(
+              data.stats[0].base_stat
+            ).padStart(3, "0")}</td>
+            <td class="pokemonstats__td"><meter id="stat" min="0" max="300" value="${String(
+              data.stats[0].base_stat
+            )}"></meter></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">atk</td>
-            <td class="pokemonstats__td">${data.stats[1].base_stat}</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${String(
+              data.stats[1].base_stat
+            ).padStart(3, "0")}</td>
+            <td class="pokemonstats__td"><meter id="stat" min="0" max="300" value="${String(
+              data.stats[1].base_stat
+            )}"></meter></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">def</td>
-            <td class="pokemonstats__td">${data.stats[2].base_stat}</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${String(
+              data.stats[2].base_stat
+            ).padStart(3, "0")}</td>
+            <td class="pokemonstats__td"><meter id="stat" min="0" max="300" value="${String(
+              data.stats[2].base_stat
+            )}"></meter></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">satk</td>
-            <td class="pokemonstats__td">${data.stats[3].base_stat}</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${String(
+              data.stats[3].base_stat
+            ).padStart(3, "0")}</td>
+            <td class="pokemonstats__td"><meter id="stat" min="0" max="300" value="${String(
+              data.stats[3].base_stat
+            )}"></meter></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">sdef</td>
-            <td class="pokemonstats__td">${data.stats[4].base_stat}</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${String(
+              data.stats[4].base_stat
+            ).padStart(3, "0")}</td>
+            <td class="pokemonstats__td"><meter id="stat" min="0" max="300" value="${String(
+              data.stats[4].base_stat
+            )}"></meter></td>
         </tr>
         <tr class="pokemonstats__tr">
             <td class="pokemonstats__td">spd</td>
-            <td class="pokemonstats__td">${data.stats[5].base_stat}</td>
-            <td class="pokemonstats__td"></td>
+            <td class="pokemonstats__td">${String(
+              data.stats[5].base_stat
+            ).padStart(3, "0")}</td>
+            <td class="pokemonstats__td"><meter id="stat" min="0" max="300" value="${String(
+              data.stats[5].base_stat
+            )}"></meter></td>
         </tr>
         
     </table>
@@ -107,7 +140,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     headerElm.appendChild(detailHeader);
     mainElm.append(pokemonDetail, pokemonDescription, pokemonStats);
 
-    // TYPE COLORS:
+    //! TYPE COLORS:
     if (data.types[0].type.name == "normal") {
       rootElm.style.backgroundColor = "#AAA67F";
       document.querySelector(".pokemondetail__about").style.color = "#AAA67F";
@@ -249,6 +282,3 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#68A090";
     }
   });
-
- 
-  

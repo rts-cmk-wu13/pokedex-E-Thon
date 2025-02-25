@@ -154,8 +154,6 @@ header {
 .pokemon {
     border-radius: 10px;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.20);
-    height: 6.5rem;
-    width: 6.5rem;
     background: linear-gradient(to top, var(--background-color) 40.74%, #FFFFFF 30%);
 }
 .pokemon a {
