@@ -139,22 +139,23 @@ header {
 /* MAIN CONTENT */
 .pokelist {
     position: relative;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 .pokelist__div {
-    width: 93.18%;
+    width: 93.19%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(31.71%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(31.7%, 1fr));
     grid-template-rows: 14.81% 66.67% 1fr;
     margin: 0 auto 0;
     gap: 0.5rem;
-    padding-top: 1.5rem;
-    padding-bottom: 10rem;
+    padding-top: .5rem;
 }
 .pokemon {
     border-radius: 10px;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.20);
-    height: 6.75rem;
-    width: 6.75rem;
+    height: 6.5rem;
+    width: 6.5rem;
     background: linear-gradient(to top, var(--background-color) 40.74%, #FFFFFF 30%);
 }
 .pokemon a {

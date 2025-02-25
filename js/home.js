@@ -26,22 +26,34 @@ header.innerHTML = `
 `;
 
 //! POKELIST:
-let divElmInner = document.createElement("div");
-divElmInner.className = "pokelist";
+// amount of pokemon count from API:
+let count = 0;
+fetch(`https://pokeapi.co/api/v2/pokemon/`)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    count = data.count;
+  });
 
+// observer created:
 const observer = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
     if (entry.isIntersecting) {
       currentOffset = currentOffset + 30;
-      if (currentOffset < 1304) {
+      if (currentOffset < count) {
         fetchPokemon(currentOffset);
       } else {
         console.log("There are no more pokémons for now");
-      }}
+      }
+    }
   });
 });
 
 let currentOffset = 0;
+
+let divElmOuter = document.createElement("div");
+divElmOuter.className = "pokelist";
 
 function fetchPokemon(offset) {
   fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=30`)
@@ -68,16 +80,18 @@ function fetchPokemon(offset) {
         })
         .join("");
 
-      // OBSERVER:
+      // pokemon being observed:
       let observedPokemon = divElms.querySelector(
         "article:nth-last-of-type(3)"
       );
       observer.observe(observedPokemon);
 
-      divElmInner.appendChild(divElms);
+      // div'er with pokemons added to bigger div
+      divElmOuter.appendChild(divElms);
     });
 
-  document.querySelector("main").append(divElmInner);
+  // pokelist div added to main
+  document.querySelector("main").append(divElmOuter);
 }
 
 // kalder fetch functionen:
