@@ -6,21 +6,20 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   .then((response) => response.json())
   .then((data) => {
     let headerElm = document.querySelector("header");
-    
+
     let detailHeader = document.createElement("section");
     detailHeader.className = "detailheader";
-    
+
     let mainElm = document.querySelector("main");
-    
+
     let pokemonDetail = document.createElement("section");
     pokemonDetail.classList.add("pokemondetail");
-    
+
     let pokemonDescription = document.createElement("div");
     pokemonDescription.classList.add("pokemondescription");
-    
+
     let pokemonStats = document.createElement("section");
     pokemonStats.classList.add("pokemonstats");
-
 
     detailHeader.innerHTML = `
     <a href="./index.html"><i class="fa-solid fa-arrow-left"></i>
@@ -29,20 +28,30 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     `;
 
     pokemonDetail.innerHTML = `
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${
+    <div class="pokemondetail__img">
+        <i class="fa-solid fa-chevron-left"></i>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${
       data.name
     }">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
     <ul class="pokemondetail__types">
-        <li class="pokemondetail__type"><h4>${
-          data.types[0]?.type.name || ""
-        }</h4></li>
-        <li class="pokemondetail__type"><h4>${
-          data.types[1]?.type.name || ""
-        }</h4></li>
-        <!-- ? tjekker om dataen eksisterer, hvis ikke, så returneres en tom streng -->
-        <li class="pokemondetail__type"><h4>${
-          data.types[2]?.type.name || ""
-        }</h4></li>
+    ${
+      data.types[0]
+        ? `<li class="pokemondetail__type"><h4>${data.types[0].type.name}</h4></li>`
+        : ""
+    }
+        ${
+          data.types[1]
+            ? `<li class="pokemondetail__type"><h4>${data.types[1].type.name}</h4></li>`
+            : ""
+        }
+        ${
+          data.types[2]
+            ? `<li class="pokemondetail__type"><h4>${data.types[2].type.name}</h4></li>`
+            : ""
+        }
+        <!-- ? tjekker om dataen eksisterer, hvis den gør, oprettes <li> hvis ikke, så returneres en tom streng -->
     </ul>
     <h2 class="pokemondetail__about">About</h2>
     <table class="pokemondetail__table">
@@ -149,6 +158,19 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
 
     headerElm.appendChild(detailHeader);
     mainElm.append(pokemonDetail, pokemonDescription, pokemonStats);
+
+    //! SLIDER ARROWS
+    const arrowLeft = document.querySelector(".fa-chevron-left")
+    const arrowRight = document.querySelector(".fa-chevron-right")
+
+    if(id = 1 ){
+        arrowLeft.style.color = "transparent"
+    } else if (id < 1304 ){
+        arrowRight.style.color = "transparent"
+    } else {
+        arrowLeft.style.color = "white"
+        arrowRight.style.color = "white"
+    }
 
     //! TYPE COLORS:
     if (data.types[0].type.name == "normal") {
