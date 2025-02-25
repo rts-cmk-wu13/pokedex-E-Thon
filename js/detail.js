@@ -1,27 +1,31 @@
 let search = window.location.search;
 let params = new URLSearchParams(search);
 let id = params.get("id");
-console.log("Pokemon ID:", id);
 
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   .then((response) => response.json())
   .then((data) => {
     let headerElm = document.querySelector("header");
+    
     let detailHeader = document.createElement("section");
     detailHeader.className = "detailheader";
+    
     let mainElm = document.querySelector("main");
+    
     let pokemonDetail = document.createElement("section");
-    let pokemonDescription = document.createElement("div");
-    let pokemonStats = document.createElement("section");
-
     pokemonDetail.classList.add("pokemondetail");
+    
+    let pokemonDescription = document.createElement("div");
     pokemonDescription.classList.add("pokemondescription");
+    
+    let pokemonStats = document.createElement("section");
     pokemonStats.classList.add("pokemonstats");
 
+
     detailHeader.innerHTML = `
-    <i class="fa-solid fa-arrow-left"></i>
-    <h1>${data.name}</h1>
-    <p class="caption">#${id.padStart(3, "0")}</p>
+    <a href="./index.html"><i class="fa-solid fa-arrow-left"></i>
+    <h1>${data.name}</h1></a>
+    <h3 class="caption">#${id.padStart(3, "0")}</h3>
     `;
 
     pokemonDetail.innerHTML = `
@@ -151,7 +155,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#AAA67F";
       document.querySelector(".pokemondetail__about").style.color = "#AAA67F";
       document.querySelector(".pokemonstats__header").style.color = "#AAA67F";
-      document.querySelector(".pokemonstats__td h4").style.color = "#AAA67F";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#AAA67F";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#AAA67F";
       });
@@ -160,7 +166,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#C12239";
       document.querySelector(".pokemondetail__about").style.color = "#C12239";
       document.querySelector(".pokemonstats__header").style.color = "#C12239";
-      document.querySelector(".pokemonstats__td h4").style.color = "#C12239";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#C12239";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#C12239";
       });
@@ -169,7 +177,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#A891EC";
       document.querySelector(".pokemondetail__about").style.color = "#A891EC";
       document.querySelector(".pokemonstats__header").style.color = "#A891EC";
-      document.querySelector(".pokemonstats__td h4").style.color = "#A891EC";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#A891EC";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#A891EC";
       });
@@ -178,7 +188,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#A43E9E";
       document.querySelector(".pokemondetail__about").style.color = "#A43E9E";
       document.querySelector(".pokemonstats__header").style.color = "#A43E9E";
-      document.querySelector(".pokemonstats__td h4").style.color = "#A43E9E";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#A43E9E";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#A43E9E";
       });
@@ -187,7 +199,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#DEC16B";
       document.querySelector(".pokemondetail__about").style.color = "#DEC16B";
       document.querySelector(".pokemonstats__header").style.color = "#DEC16B";
-      document.querySelector(".pokemonstats__td h4").style.color = "#DEC16B";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#DEC16B";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#DEC16B";
       });
@@ -196,7 +210,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#B69E31";
       document.querySelector(".pokemondetail__about").style.color = "#B69E31";
       document.querySelector(".pokemonstats__header").style.color = "#B69E31";
-      document.querySelector(".pokemonstats__td h4").style.color = "#B69E31";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#B69E31";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#B69E31";
       });
@@ -205,16 +221,20 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#A7B723";
       document.querySelector(".pokemondetail__about").style.color = "#A7B723";
       document.querySelector(".pokemonstats__header").style.color = "#A7B723";
-      document.querySelector(".pokemonstats__td h4").style.color = "#A7B723";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#A7B723";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
-        bar.style.backgroundColor = "#A7B723";
+        bar.style.color = "#A7B723";
       });
     }
     if (data.types[0].type.name == "ghost") {
       rootElm.style.backgroundColor = "#70559B";
       document.querySelector(".pokemondetail__about").style.color = "#70559B";
       document.querySelector(".pokemonstats__header").style.color = "#70559B";
-      document.querySelector(".pokemonstats__td h4").style.color = "#70559B";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#70559B";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#70559B";
       });
@@ -223,7 +243,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#B7B9D0";
       document.querySelector(".pokemondetail__about").style.color = "#B7B9D0";
       document.querySelector(".pokemonstats__header").style.color = "#B7B9D0";
-      document.querySelector(".pokemonstats__td h4").style.color = "#B7B9D0";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#B7B9D0";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#B7B9D0";
       });
@@ -232,7 +254,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#F57D31";
       document.querySelector(".pokemondetail__about").style.color = "#F57D31";
       document.querySelector(".pokemonstats__header").style.color = "#F57D31";
-      document.querySelector(".pokemonstats__td h4").style.color = "#F57D31";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#F57D31";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#F57D31";
       });
@@ -241,7 +265,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#6493EB";
       document.querySelector(".pokemondetail__about").style.color = "#6493EB";
       document.querySelector(".pokemonstats__header").style.color = "#6493EB";
-      document.querySelector(".pokemonstats__td h4").style.color = "#6493EB";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#6493EB";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#6493EB";
       });
@@ -250,7 +276,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#74CB48";
       document.querySelector(".pokemondetail__about").style.color = "#74CB48";
       document.querySelector(".pokemonstats__header").style.color = "#74CB48";
-      document.querySelector(".pokemonstats__td h4").style.color = "#74CB48";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#74CB48";
+      });
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#74CB48";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#74CB48";
       });
@@ -259,7 +290,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#F9CF30";
       document.querySelector(".pokemondetail__about").style.color = "#F9CF30";
       document.querySelector(".pokemonstats__header").style.color = "#F9CF30";
-      document.querySelector(".pokemonstats__td h4").style.color = "#F9CF30";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#F9CF30";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#F9CF30";
       });
@@ -268,7 +301,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#FB5584";
       document.querySelector(".pokemondetail__about").style.color = "#FB5584";
       document.querySelector(".pokemonstats__header").style.color = "#FB5584";
-      document.querySelector(".pokemonstats__td h4").style.color = "#FB5584";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#FB5584";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#FB5584";
       });
@@ -277,7 +312,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#9AD6DF";
       document.querySelector(".pokemondetail__about").style.color = "#9AD6DF";
       document.querySelector(".pokemonstats__header").style.color = "#9AD6DF";
-      document.querySelector(".pokemonstats__td h4").style.color = "#9AD6DF";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#9AD6DF";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#9AD6DF";
       });
@@ -286,7 +323,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#7037FF";
       document.querySelector(".pokemondetail__about").style.color = "#7037FF";
       document.querySelector(".pokemonstats__header").style.color = "#7037FF";
-      document.querySelector(".pokemonstats__td h4").style.color = "#7037FF";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#7037FF";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#7037FF";
       });
@@ -295,7 +334,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#75574C";
       document.querySelector(".pokemondetail__about").style.color = "#75574C";
       document.querySelector(".pokemonstats__header").style.color = "#75574C";
-      document.querySelector(".pokemonstats__td h4").style.color = "#75574C";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#75574C";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#75574C";
       });
@@ -304,7 +345,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#E69EAC";
       document.querySelector(".pokemondetail__about").style.color = "#E69EAC";
       document.querySelector(".pokemonstats__header").style.color = "#E69EAC";
-      document.querySelector(".pokemonstats__td h4").style.color = "#E69EAC";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#E69EAC";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#E69EAC";
       });
@@ -313,7 +356,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#40B5A5";
       document.querySelector(".pokemondetail__about").style.color = "#40B5A5";
       document.querySelector(".pokemonstats__header").style.color = "#40B5A5";
-      document.querySelector(".pokemonstats__td h4").style.color = "#40B5A5";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#40B5A5";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#40B5A5";
       });
@@ -322,9 +367,46 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       rootElm.style.backgroundColor = "#68A090";
       document.querySelector(".pokemondetail__about").style.color = "#68A090";
       document.querySelector(".pokemonstats__header").style.color = "#68A090";
-      document.querySelector(".pokemonstats__td h4").style.color = "#68A090";
+      document.querySelectorAll(".pokemonstats__td h4").forEach((h4) => {
+        h4.style.color = "#68A090";
+      });
       document.querySelectorAll(".pokemonstats__td meter").forEach((bar) => {
         bar.style.backgroundColor = "#68A090";
       });
     }
+
+    //! COLOR TYPES
+    const typeColors = {
+      normal: "#AAA67F",
+      fighting: "#C12239",
+      flying: "#A891EC",
+      poison: "#A43E9E",
+      ground: "#DEC16B",
+      rock: "#B69E31",
+      bug: "#A7B723",
+      ghost: "#70559B",
+      steel: "#B7B9D0",
+      fire: "#F57D31",
+      water: "#6493EB",
+      grass: "#74CB48",
+      electric: "#F9CF30",
+      psychic: "#FB5584",
+      ice: "#9AD6DF",
+      dragon: "#7037FF",
+      dark: "#75574C",
+      fairy: "#E69EAC",
+      stellar: "#40B5A5",
+      unknown: "#68A090",
+    };
+
+    // Gennemgå alle <h4> elementer i <ul class="pokemondetail__types">
+    document
+      .querySelectorAll(".pokemondetail__type h4")
+      .forEach((h4, index) => {
+        const typeName = data.types[index]?.type.name;
+
+        if (typeName && typeColors[typeName]) {
+          h4.style.backgroundColor = typeColors[typeName];
+        }
+      });
   });
