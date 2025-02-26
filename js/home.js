@@ -6,7 +6,7 @@ header.innerHTML = `
         <h1>Pokédex</h1>
     </div>
     <div class="header__bottom"> 
-        <input type="search" id="search" name="search" placeholder="Search"  aria-label="Search through pokémons">
+        <input class="body3" type="search" id="search" name="search" placeholder="Search" aria-label="Search through pokémons">
         <span><i class="fa-solid fa-magnifying-glass"></i></span>
         <button class="header__btn"><i class="fa-solid fa-hashtag"></i></button>
         <div class="header__popup">
@@ -73,7 +73,7 @@ function fetchPokemon(offset) {
             <a href="detail.html?id=${id}">
                 <p class="caption">#${id.padStart(3, "0")}</p>
                 <img loading="lazy" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${pokemon.name}">
-                <p class="body3">${pokemon.name}</p>
+                <p class="body3">${pokemon.name.charAt(0).toUpperCase()+pokemon.name.slice(1)}</p>
             </a>
         </article>
         `;

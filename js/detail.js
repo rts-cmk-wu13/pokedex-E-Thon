@@ -34,8 +34,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     `;
 
 
-    pokemonDetail.innerHTML = `
-        
+    pokemonDetail.innerHTML = `  
     <figure class="pokemondetail__figure">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${data.name}">
     </figure>
@@ -190,8 +189,8 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       arrowRight.style.display = "none";
     } 
 
+    //! KEYBOARD: CHANGE POKEMON
     window.addEventListener("keydown", changePokemon)
-
     function changePokemon (e) {
       switch (e.key) {
         case "ArrowLeft": 
@@ -205,7 +204,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
           break;
       }
     }
-
 
     //! TYPE COLORS:
     if (data.types[0].type.name == "normal") {
