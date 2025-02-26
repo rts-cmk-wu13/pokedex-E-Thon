@@ -30,7 +30,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     <div class="detailheader__div">
       <a href="http://127.0.0.1:5500/detail.html?id=${Number(id)-1}"><i class="fa-solid fa-chevron-left"></i></a>
       <a href="http://127.0.0.1:5500/detail.html?id=${Number(id)+1}"><i class="fa-solid fa-chevron-right"></i></a>
-  </div>
+    </div>
     `;
 
 
@@ -185,13 +185,27 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     const arrowRight = document.querySelector(".fa-chevron-right");
 
     if (id === "1") {
-      arrowLeft.style.color = "transparent";
+      arrowLeft.style.display = "none";
     } else if (id === "1304") {
-      arrowRight.style.color = "transparent";
-    } else {
-      arrowLeft.style.color = "white";
-      arrowRight.style.color = "white";
+      arrowRight.style.display = "none";
+    } 
+
+    window.addEventListener("keydown", changePokemon)
+
+    function changePokemon (e) {
+      switch (e.key) {
+        case "ArrowLeft": 
+        window.location.assign(
+          `http://127.0.0.1:5500/detail.html?id=${Number(id)-1}`)
+          break;
+
+        case "ArrowRight":
+          window.location.assign(
+            `http://127.0.0.1:5500/detail.html?id=${Number(id)+1}`)
+          break;
+      }
     }
+
 
     //! TYPE COLORS:
     if (data.types[0].type.name == "normal") {

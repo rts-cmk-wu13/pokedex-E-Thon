@@ -3,14 +3,20 @@
 
 header {
     height: 14rem;
+    margin: 0 auto;
+}
+.detailheader {
     background-image: url(../img/pokeball_big.png);
     background-repeat: no-repeat;
     background-position: right;
-    margin: 0 auto;
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 1rem 1.388125rem;
+    margin: .5rem;
 }
 .detailheader__section {
-    padding: 0 1rem 1rem;
     height: 4.75rem;
     display: flex;
     justify-content: space-between;
@@ -22,17 +28,21 @@ header {
     gap: 1rem;
     color: var(--white-color);
 }
+.detailheader__section a i {
+    font-size: 1.3125rem;
+}
 .detailheader__section h3 {
     color: var(--white-color);
 }
 .detailheader__div {
     display: flex;
     justify-content: space-between;
+    align-items: end;
 }
-.detailheader__div .fa-arrow-left, .detailheader__div .fa-arrow-right {
+.detailheader__div i {
     cursor: pointer;
     color: var(--white-color);
-    font-size: 1.3125rem;
+    font-size:.8rem;
 }
 /* MAIN */
 main {
@@ -114,12 +124,8 @@ main {
 .pokemondescription{
     margin: 2rem 0;
 }
-.pokemondescription__text {
     
-}
-
 /* -- POKEMON STAT BARS*/
-.pokemonstats{}
 .pokemonstats__header {
     text-align: center;
     margin-bottom: 1rem;
@@ -128,7 +134,6 @@ main {
     width: 100%;
     border-collapse: collapse;
 }
-.pokemonstats__tr {}
 .pokemonstats__td:first-of-type {
     text-transform: uppercase;
     width: 2.5rem;
