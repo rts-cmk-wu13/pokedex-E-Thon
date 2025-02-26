@@ -72,7 +72,7 @@ function fetchPokemon(offset) {
         <article class="pokemon">
             <a href="detail.html?id=${id}">
                 <p class="caption">#${id.padStart(3, "0")}</p>
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${pokemon.name}">
+                <img loading="lazy" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${pokemon.name}">
                 <p class="body3">${pokemon.name}</p>
             </a>
         </article>

@@ -7,6 +7,7 @@ header {
     background-repeat: no-repeat;
     background-position: right;
     margin: 0 auto;
+    /* display: flex; */
 }
 .detailheader__section {
     padding: 0 1rem 1rem;
@@ -27,7 +28,6 @@ header {
 .detailheader__div {
     display: flex;
     justify-content: space-between;
-    bottom: 0;
 }
 .detailheader__div .fa-arrow-left, .detailheader__div .fa-arrow-right {
     cursor: pointer;
