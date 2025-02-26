@@ -8,4 +8,4 @@ divElm.innerHTML = `
     <footer>
     </footer>
 `
-document.querySelector("body").append(divElm);
+document.querySelector("body").append(divElm);  

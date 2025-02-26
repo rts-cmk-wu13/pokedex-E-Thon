@@ -66,11 +66,11 @@ function fetchPokemon(offset) {
 
       divElms.innerHTML += data.results
         .map(function (pokemon) {
-          let id = pokemon.url.slice(0, -1).split("/").pop();
+          let id = pokemon.url.slice(0, -1).split("/").pop();        
 
           return `
-        <article class="pokemon">
-            <a href="detail.html?id=${id}">
+        <article class="pokemon" id="${id}">
+            <a href="detail.html?pokemon=${pokemon.name}&id=${id}">
                 <p class="caption">#${id.padStart(3, "0")}</p>
                 <img loading="lazy" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png" alt="${pokemon.name}">
                 <p class="body3">${pokemon.name.charAt(0).toUpperCase()+pokemon.name.slice(1)}</p>

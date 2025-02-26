@@ -21,15 +21,18 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     let pokemonStats = document.createElement("section");
     pokemonStats.classList.add("pokemonstats");
 
+    let nextId = Number(id)+1;
+    let prevId = Number(id)-1;
+
     detailHeader.innerHTML = `
     <section class="detailheader__section">
-      <a href="./index.html"><i class="fa-solid fa-arrow-left"></i>
+      <a href="./index.html#${id}"><i class="fa-solid fa-arrow-left"></i>
       <h1>${data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h1></a>
       <h3>#${id.padStart(4, "0")}</h3>
     </section>
     <div class="detailheader__div">
-      <a href="http://127.0.0.1:5500/detail.html?id=${Number(id)-1}"><i class="fa-solid fa-chevron-left"></i></a>
-      <a href="http://127.0.0.1:5500/detail.html?id=${Number(id)+1}"><i class="fa-solid fa-chevron-right"></i></a>
+      <a href="detail.html?id=${prevId}&pokemon=${data.name}"><i class="fa-solid fa-chevron-left"></i></a>
+      <a href="detail.html?id=${nextId}&pokemon=${data.name}"><i class="fa-solid fa-chevron-right"></i></a>
     </div>
     `;
 
@@ -195,12 +198,12 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       switch (e.key) {
         case "ArrowLeft": 
         window.location.assign(
-          `http://127.0.0.1:5500/detail.html?id=${Number(id)-1}`)
+          `detail.html?id=${prevId}&pokemon=${data.name}`)
           break;
 
         case "ArrowRight":
           window.location.assign(
-            `http://127.0.0.1:5500/detail.html?id=${Number(id)+1}`)
+            `detail.html?id=${nextId}&pokemon=${data.name}`)
           break;
       }
     }
