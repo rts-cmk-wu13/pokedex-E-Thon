@@ -45,10 +45,17 @@ document.querySelector(".header__search").addEventListener("submit", function (e
   if (searchInput) {
     /* hvis søgefeltet ikke er tomt, så fetcher den data, som svarer til det der skrives i søgefeltet og skriver det ind i stedet for seachInput i URL'en */
     fetch(`https://pokeapi.co/api/v2/pokemon/${searchInput}`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(""); // .then stoppes => direkte til .catch 
+        }
+        return response.json(); // hvis alt er ok, returnes response som JSON API
+      })
       .then(data => {
         window.location.href = `detail.html?pokemon=${searchInput}&id=${data.id}`;
         // den finder den rigtige pokemon, hvis man søger på ID, men skriver pokemon=tal og ikke navn.
+      }).catch(() => {
+        alert("The Pokémon is not found!"); // popup fejlmeddelelse på skærmen
       });
   }
 })
