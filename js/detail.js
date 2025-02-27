@@ -2,6 +2,7 @@ let search = window.location.search;
 let params = new URLSearchParams(search);
 let id = params.get("id");
 
+//! POKEMON DETAIL
 fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   .then((response) => response.json())
   .then((data) => {

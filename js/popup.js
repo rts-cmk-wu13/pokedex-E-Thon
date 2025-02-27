@@ -2,9 +2,9 @@ const popup = document.querySelector(".header__btn");
 const sortList = document.querySelector(".header__popup");
 const popupIcon = document.querySelector(".fa-solid.fa-hashtag");
 
-popup.addEventListener("click", menuToggle);
+popup.addEventListener("click", popupToggle);
 
-function menuToggle(){
+function popupToggle(){
     if(sortList.style.display === "block"){
     sortList.style.display = "none";
     
