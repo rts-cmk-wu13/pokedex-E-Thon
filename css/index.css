@@ -37,11 +37,20 @@ header {
     font-size: .75rem;
 }
 
-.header__bottom input,
+.header__bottom form {
+    grid-area: 1 / 1 / -1 / -1;
+    width: 100%;
+}
+.header__bottom input{
+    height: 2rem;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+}
 .header__bottom button {
+    height: 2rem;
     grid-area: 1 / 1 / -1 / -1;
     width: 2rem;
-    height: 2rem;
     align-self: center;
     border-radius: 16px;
     border: none;
